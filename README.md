@@ -1,38 +1,35 @@
-# 🛡️ DiscloseGuard: Responsible Security Triage & Safe-Harbor Liaison
+<div align="center">
 
-> **GenAI Sprint 1.0 | Track 1: Amazon PartyRock Hackathon**  
-> **Team:** CodeX  
-> **Team Lead:** Sayim Mullick ([GitHub Profile](https://github.com/Sayim07))  
-> **Live PartyRock App:** [Launch DiscloseGuard on AWS PartyRock](https://partyrock.aws/u/smdev/4T2v35MxM/DiscloseGuard%253A-Responsible-Vulnerability-Triage-and-Dis)
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=DiscloseGuard&fontSize=45&fontColor=A3E635&animation=fadeIn&fontAlignY=38&desc=Responsible%20Security%20Triage%20&%20Safe-Harbor%20Liaison&descSize=16&descColor=38BDF8" width="100%"/>
 
----
+  <p align="center">
+    <img src="https://img.shields.io/badge/GenAI_Sprint-1.0-blue?style=for-the-badge&logo=amazonservices&logoColor=white" />
+    <img src="https://img.shields.io/badge/Platform-Amazon_PartyRock-orange?style=for-the-badge&logo=awslambda&logoColor=white" />
+    <img src="https://img.shields.io/badge/AI_Engine-Claude_3.5_Sonnet-purple?style=for-the-badge&logo=anthropic&logoColor=white" />
+    <img src="https://img.shields.io/badge/Compliance-ISO%2FIEC_29147-green?style=for-the-badge&logo=security&logoColor=white" />
+  </p>
 
-## 🚀 Project Overview
-**DiscloseGuard** is an AI-powered defensive security governance, legal compliance, and campus safety suite built entirely on **Amazon PartyRock**. It automates vulnerability triage and responsible reporting for student researchers and ethical hackers, bridging the gap between discovering security flaws in campus portals and reporting them safely without fear of legal or administrative backlash.
+  <h3>
+    <a href="https://partyrock.aws/u/smdev/4T2v35MxM/DiscloseGuard%253A-Responsible-Vulnerability-Triage-and-Dis" target="_blank">
+      🚀 <b>Launch Live DiscloseGuard App on AWS PartyRock</b> 🚀
+    </a>
+  </h3>
 
----
-
-## 🔗 Live Application Link
-👉 **[Click Here to Access DiscloseGuard on AWS PartyRock](https://partyrock.aws/u/smdev/4T2v35MxM/DiscloseGuard%253A-Responsible-Vulnerability-Triage-and-Dis)**
-
----
-
-## 🛠️ Tech Stack & Architecture (PartyRock 6-Widget Pipeline)
-This application is engineered using an advanced **multi-stage prompt chaining architecture** across 6 interconnected widgets:
-
-1. **`Input_Vulnerability_Data` (User Input):** Captures raw technical vulnerability descriptions (e.g., unauthenticated API endpoints or IDOR/BOLA flaws).
-2. **`Input_Target_Org` (User Input):** Captures target organization context (e.g., State University Portal or Student Club Platform).
-3. **`Severity_CVSS_Engine` (Claude 3.5 Sonnet / Reasoning LLM):** Chains both inputs to calculate OWASP Risk Ratings and standard CVSS v3.1 base metrics (`Attack Vector`, `Privileges Required`, `Impact Scope`) into a structured markdown scorecard.
-4. **`Remediation_Advisor` (Claude 3.5 Sonnet):** Chains inputs and the CVSS scorecard to generate defensive architectural fixes, production-ready Node.js/Express middleware validation code, and NGINX Zero-Trust header guidelines.
-5. **`Safe_Harbor_Drafter` (Claude 3.5 Sonnet):** Chains upstream triage and remediation outputs to draft a professional, legally cautious Coordinated Vulnerability Disclosure (CVD) email aligned with **ISO/IEC 29147** and **ISO/IEC 30111** guidelines (enforcing zero extortion tone and strict PII redaction).
-6. **`Triage_Report_Card` (PartyRock Image Generation):** Generates an executive security compliance badge and digital defense shield for institutional presentations.
+</div>
 
 ---
 
-## 🧪 Quick Sample Input for Judges (1-Click Testing)
-To test the live application on PartyRock, paste the following sample parameters into the top input widgets:
+## ⚡ Interactive Architecture Flow
 
-* **`Input_Vulnerability_Data`:**
-  
-```text
-  Unauthenticated GET request to /api/v1/student/semester-marks?reg_no=2026001 exposes internal registration numbers, full marksheets, and phone numbers without checking session authentication tokens.
+```mermaid
+graph TD
+    A[Input_Vulnerability_Data] --> C[Severity_CVSS_Engine]
+    B[Input_Target_Org] --> C[Severity_CVSS_Engine]
+    C --> D[Remediation_Advisor]
+    C --> E[Safe_Harbor_Drafter]
+    A --> F[Triage_Report_Card]
+    B --> F[Triage_Report_Card]
+    style C fill:#141B2D,stroke:#A3E635,stroke-width:2px,color:#fff
+    style D fill:#141B2D,stroke:#38BDF8,stroke-width:2px,color:#fff
+    style E fill:#141B2D,stroke:#A3E635,stroke-width:2px,color:#fff
+    style F fill:#141B2D,stroke:#F97316,stroke-width:2px,color:#fff
