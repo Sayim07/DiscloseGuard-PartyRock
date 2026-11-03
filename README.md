@@ -19,17 +19,12 @@
 
 ---
 
-## ⚡ Interactive Architecture Flow
+## ⚡ Multi-Stage Pipeline Architecture
 
-```mermaid
-graph TD
-    A[Input_Vulnerability_Data] --> C[Severity_CVSS_Engine]
-    B[Input_Target_Org] --> C[Severity_CVSS_Engine]
-    C --> D[Remediation_Advisor]
-    C --> E[Safe_Harbor_Drafter]
-    A --> F[Triage_Report_Card]
-    B --> F[Triage_Report_Card]
-    style C fill:#141B2D,stroke:#A3E635,stroke-width:2px,color:#fff
-    style D fill:#141B2D,stroke:#38BDF8,stroke-width:2px,color:#fff
-    style E fill:#141B2D,stroke:#A3E635,stroke-width:2px,color:#fff
-    style F fill:#141B2D,stroke:#F97316,stroke-width:2px,color:#fff
+```text
+  [1] Input_Vulnerability_Data ──┐
+                                 ├──► [3] Severity_CVSS_Engine ──┬──► [4] Remediation_Advisor
+  [2] Input_Target_Org           │                               │
+                                 └───────────────────────────────┼──► [5] Safe_Harbor_Drafter
+                                                                 │
+  [1] + [2] (Direct Inputs) ─────────────────────────────────────┴──► [6] Triage_Report_Card
